@@ -18,35 +18,31 @@
         data () {
             return {
                 title: 'this is a todo list!',
-                items: [
-                    {
-                        label: 'coding',
-                        isFinished: false
-                    },
-                    {
-                        label: 'walking',
-                        isFinished: true
-                    }
-                ],
-                liClass:'thisisliClass',
-                newItem:''
+                items: [],
+                liClass: 'thisisliClass',
+                newItem: ''
             }
         },
-        methods:{
-            toggleFinish:function (item) {
+        methods: {
+            toggleFinish: function (item) {
                 item.isFinished = !item.isFinished;
             },
-            addNew:function () {
-                console.log(this.newItem)
+            addNew: function () {
+                this.items.push({
+                    label: this.newItem,
+                    isFinished: false
+                });
+                this.newItem = ""
             }
         }
     }
 </script>
 
 <style>
-    .finished{
+    .finished {
         text-decoration: underline;
     }
+
     html {
         height: 100%;
     }
