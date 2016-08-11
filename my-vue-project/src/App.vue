@@ -2,7 +2,7 @@
     <div id="app">
         <!--<h1>{{title}}</h1>-->
         <h1 v-text="title"></h1>
-        <input v-module="newItem" v-on:keyup.enter="addNew">
+        <input v-model="newItem" @keyup.enter="addNew">
         <ul>
             <li v-for="item in items" :class="[liClass,{finished:item.isFinished}]" @click="toggleFinish(item)">
                 {{item.label}}
