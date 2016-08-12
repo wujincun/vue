@@ -12,13 +12,12 @@
 </template>
 
 <script>
-
-
+    import Store from './store'
     export default {
         data () {
             return {
                 title: 'this is a todo list!',
-                items: [],
+                items: Store.fetch(),
                 liClass: 'thisisliClass',
                 newItem: ''
             }
@@ -33,6 +32,14 @@
                     isFinished: false
                 });
                 this.newItem = ""
+            }
+        },
+        watch:{
+            items:{
+                handler:function (items) {
+                    Store.save(items)
+                },
+                deep:true//如果不这样写，没有深层赋值，那么items里只是一个key更改的话不会检测到
             }
         }
     }
