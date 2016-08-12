@@ -30,6 +30,7 @@
             Header,
             Footer
         ],//模块必须引入注册
+        props:['msg'],
         methods: {
             toggleFinish: function (item) {
                 item.isFinished = !item.isFinished;
