@@ -9,7 +9,7 @@
                 {{item.label}}
             </li>
         </ul>
-        <component-a></component-a><!--在component里注册的组件名称每一个驼峰大写的地方都要转换成-小写的形式-->
+        <component-a ></component-a><!--在component里注册的组件名称每一个驼峰大写的地方都要转换成-小写的形式-->
     </div>
     <Footer></Footer>
 </template>
