@@ -1,4 +1,4 @@
-<script>
+<!--<script>
     new Vue({
         data:{
             username:'XXX'
@@ -10,4 +10,4 @@
             }
         }
     })
-</script>
+</script>-->

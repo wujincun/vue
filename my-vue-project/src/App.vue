@@ -9,14 +9,16 @@
                 {{item.label}}
             </li>
         </ul>
+        <component-a></component-a>
     </div>
-    <footer></footer>
+    <Footer></Footer>
 </template>
 
 <script>
     import Store from './store'
     import Header from './header'
-    import footer from './footer'
+    import Footer from './footer'
+    import ComponentsA from './components/componentsA'
     export default {
         data () {
             return {
@@ -28,7 +30,8 @@
         },
         components:[
             Header,
-            Footer
+            Footer,
+            ComponentsA
         ],//模块必须引入注册
         methods: {
             toggleFinish: function (item) {
