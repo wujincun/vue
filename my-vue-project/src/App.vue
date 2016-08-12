@@ -1,5 +1,5 @@
 <template>
-    <header></header>
+    <header msg="something interesting"></header>
     <div id="app">
         <!--<h1>{{title}}</h1>-->
         <h1 v-text="title"></h1>
@@ -30,7 +30,6 @@
             Header,
             Footer
         ],//模块必须引入注册
-        props:['msg'],
         methods: {
             toggleFinish: function (item) {
                 item.isFinished = !item.isFinished;
