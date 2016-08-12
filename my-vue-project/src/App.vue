@@ -1,4 +1,5 @@
 <template>
+    <header></header>
     <div id="app">
         <!--<h1>{{title}}</h1>-->
         <h1 v-text="title"></h1>
@@ -9,10 +10,13 @@
             </li>
         </ul>
     </div>
+    <footer></footer>
 </template>
 
 <script>
     import Store from './store'
+    import Header from './header'
+    import footer from './footer'
     export default {
         data () {
             return {
@@ -22,6 +26,10 @@
                 newItem: ''
             }
         },
+        components:[
+            Header,
+            Footer
+        ],//模块必须引入注册
         methods: {
             toggleFinish: function (item) {
                 item.isFinished = !item.isFinished;
