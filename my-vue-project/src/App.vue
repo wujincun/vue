@@ -9,16 +9,16 @@
                 {{item.label}}
             </li>
         </ul>
-        <component-a></component-a>
+        <component-a></component-a><!--在component里注册的组件名称每一个驼峰大写的地方都要转换成-小写的形式-->
     </div>
     <Footer></Footer>
 </template>
 
 <script>
     import Store from './store'
-    import Header from './header'
-    import Footer from './footer'
-    import ComponentsA from './components/componentsA'
+    /*import Header from './header'
+    import Footer from './footer'*/
+    import ComponentA from './components/componentsA'
     export default {
         data () {
             return {
@@ -28,11 +28,11 @@
                 newItem: ''
             }
         },
-        components:[
-            Header,
-            Footer,
-            ComponentsA
-        ],//模块必须引入注册
+        components:{
+           /* Header,
+            Footer,*/
+            ComponentA
+        },//模块必须引入注册
         methods: {
             toggleFinish: function (item) {
                 item.isFinished = !item.isFinished;
