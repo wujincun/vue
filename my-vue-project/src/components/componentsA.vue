@@ -1,7 +1,7 @@
 <template>
     <div class="hello">
         <h1>{{ msg }}</h1>
-        <button @click="onClickMe">Click!</button>
+        <button @click="onClickMe">open mouse!</button>
     </div>
 </template>
 
@@ -13,9 +13,15 @@
             }
         },
         methods:{
-            onClickMe:{
-
+            onClickMe:function () {
+                //this.$emit('child-tell-me-something',this.msg)
+                this.$dispatch('child-tell-me-something',this.msg)//传到父组件
             }
+        },
+        events:{
+          'onAddnew':function (items) {
+            console.log(items)
+          }
         }
     }
 </script>

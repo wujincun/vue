@@ -9,7 +9,8 @@
                 {{item.label}}
             </li>
         </ul>
-        <component-a ></component-a><!--在component里注册的组件名称每一个驼峰大写的地方都要转换成-小写的形式-->
+        <p>child tells me:{{childWords}}</p>
+        <component-a v-on:child-tell-me-something="listenToMyBoy"></component-a><!--在component里注册的组件名称每一个驼峰大写的地方都要转换成-小写的形式-->
     </div>
     <Footer></Footer>
 </template>
@@ -25,7 +26,8 @@
                 title: 'this is a todo list!',
                 items: Store.fetch(),
                 liClass: 'thisisliClass',
-                newItem: ''
+                newItem: '',
+                childWords:''//如果不在data声明，不会在p标签中显示
             }
         },
         components:{
@@ -42,7 +44,11 @@
                     label: this.newItem,
                     isFinished: false
                 });
-                this.newItem = ""
+                this.newItem = "";
+                this.$broadcast('onAddnew',this.items)//传到子组件
+            },
+            listenToMyBoy:function (msg) {
+                this.childWords = msg;
             }
         },
         watch:{
@@ -52,7 +58,13 @@
                 },
                 deep:true//如果不这样写，没有深层赋值，那么items里只是一个key更改的话不会检测到
             }
+        },
+      events:{
+        'child-tell-me-something': function (msg) {//子组件components里用$dispatch，用v-on获取不到，要用events
+           this.childWords = msg
         }
+      }
+
     }
 </script>
 
